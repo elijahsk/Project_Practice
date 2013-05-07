@@ -1,0 +1,138 @@
+{% extends "main.html" %}
+{% block content %}
+
+
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" /> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.nivo.slider.js"></script>
+<script src="/static/js/twitter.js"></script>    
+<script src="/static/js/custom.js"></script>
+<script src='/static/js/google.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+
+<div id="main" onload="initialize()">
+    <!-- Start H1 Title -->
+	<br/>
+    <div class="titlesnormal">
+    
+    	<br/>
+		<h1>Contact Info</h1>
+        
+        <span></span>
+    
+    </div>
+    <!-- End H1 Title -->
+    <!-- Start Main Body Wrap -->
+    <div id="main-wrap">
+        
+        <!-- Start Left Section -->
+        <div class="leftsection">
+
+            <!-- Start Google Maps -->
+        	<div class="blogwrapstart">
+            
+            	<div id="mapcanvas"></div>
+                <span class="box-arrow"></span>
+            
+            </div>
+            <!-- End Google Maps -->
+        
+        </div>
+        <!-- End Left Section -->
+        
+        <!-- Start Right Section -->
+        <div class="rightsection">
+            
+        	<!-- Start Blog Widget -->
+            <div class="blogwidgetstart">
+            	<!-- Start Categories Widget -->
+				<br/>
+            	<div class="widgettitle"><h3>Contact Details</h3></div>
+                
+                <div class="widgetbody">
+                
+                	<div class="blogcategories">
+                    
+                    	<div class="contactdetails" class='centre'>
+							<p></p>
+                            <p><a href = "mailto: song.kai@dhs.sg">song.kai@dhs.sg</a></p>
+                            <p>+(65) 8385 6279</p>
+                            <p>10 Tanjong Rhu Road<br />Singapore &nbsp; 436895</p>
+                            
+                        </div>
+                    
+                    </div>
+                
+              </div>
+              <!-- End Categories Widget -->
+              <span class="box-arrow"></span>
+            
+            </div>
+            <!-- End Blog Widget -->
+        
+        </div>
+        <!-- End Right Section -->
+        <!-- Start Full Width -->
+        <div class="boxes-full">
+        
+            <div class="contacttitle">
+				<br/>
+				<br/>
+                <h2>Leave Us A Message</h2>
+            
+            </div>
+        
+        	<div class="boxes-padding fullpadding">
+            <br/>
+			<br/>
+			<br/>
+            <div id="contactwarning"></div>
+            <div id="contactajax"></div>
+            
+            <form action="javascript:parseResponse();" method="post" name="ajaxcontactform" id="ajaxcontactform">
+            
+            	<div class="contacttextarea">
+                	<input name="contactformid" id="contactformid" type="hidden" value="1" />
+                
+                	<fieldset>
+                    	<textarea name="comment" id="comment" cols="5" rows="5" class="contacttextarea"onfocus="if (this.value == 'Please Leave A Message') {this.value = '';}">Please Leave A Message</textarea>
+                    </fieldset>
+                
+                </div>
+                
+                <div class="contacttextboxes">
+                
+                	<fieldset>
+                    	<input id="name" name="name" type="text" class="contacttextform" onfocus="if (this.value == 'Please Insert Your Name') {this.value = '';}"value="Please Insert Your Name">
+                    </fieldset>
+                    
+                	<fieldset>
+                    	<input id="phone" name="phone" type="text" class="contacttextform" onfocus="if (this.value == 'Please Insert Your Phone Number') {this.value = '';}"value="Please Insert Your Phone Number">
+                    </fieldset>
+                    
+                	<fieldset>
+                    	<input id="email" name="email" type="text" class="contacttextform" onfocus="if (this.value == 'Please Insert Your Email') {this.value = '';}"value="Please Insert Your Email">
+                    </fieldset>
+                    <br/>
+                	<fieldset>
+                    	<input name="send" type="submit" class="contactformbutton" value="Send">
+                    </fieldset>
+                
+                </div>
+                
+            </form>
+            
+            </div>
+            
+            <span class="box-arrow"></span>
+            
+        </div>
+        <!-- End Full Width -->
+        
+    </div>
+    <!-- End Main Body Wrap -->
+
+</div>
+{% endblock %}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="/static/img/logo.jpg">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{{title}}</title>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div id="templatemo_container">
+	<div id="templatemo_menu">
+    	<ul>
+            <li><a href="/" class="current">Home</a></li>
+            <li><a href="/allitems">Souvenirs</a></li>
+            {% if username==''%}<li><a href="/login">Login</a></li>  {% endif %}
+			{% if username!=''%}<li><a href="/logout">Logout</a></li>  {% endif %}
+			{% if username!=''%}<li><a href="/viewallorder/{{user}}">My Orders</a></li>  {% endif %}
+            {% if username==''%}<li><a href="/signup">Sign Up</a></li> {% endif %}
+            <li><a href="/contact">Contact</a></li>			
+			{% if username=='adminsk' %}<li><a href="/search">Search</a></li>{% endif %}            
+    	</ul>
+    </div> <!-- end of menu -->
+    {% if username!=''%}<p class='right midfont'>Welcome,{{username}}</p>	{% endif %}
+	{% if username==''%}<p class='right midfont'>Welcome, guest</p>	{% endif %}
+    <div id="templatemo_header">
+    	<div id="templatemo_special_offers">
+        	<p>
+                <span>Special</span> Dunman Dolls!	
+        	</p>
+			<a href="/view/12" style="margin-left: 50px;">Read more...</a>
+        </div>
+        
+        
+        <div id="templatemo_new_books">
+        	<ul>
+                <li>School Badges</li>
+                <li>for Junior High</li>
+                <li>for Senior High</li>
+            </ul>
+            <a href="/badges" style="margin-left: 50px;">Read more...</a>
+        </div>
+    </div> <!-- end of header -->
+    
+    <div id="templatemo_content">
+    	
+        <div id="templatemo_content_left">
+        	<div class="templatemo_content_left_section">
+            	<h1>Categories</h1>
+                <ul>
+					<li><a href="/allitems">All</a></li>
+                    <li><a href="/stationery">Stationery</a></li>
+                    <li><a href="/badges">School Badges</a></li>
+                    <li><a href="/special">SPECIAL!</a></li>
+                    <li><a href="/others">Others</a></li>
+            	</ul>
+            </div>
+			<div class="templatemo_content_left_section">
+            	<h1>Bestsellers</h1>
+                <ul>
+                    <li><a href="/view/11">School Badge (Senior High)</a></li>
+                    <li><a href="/view/12">Dunman Dolls (Pair)</a></li>
+                    <li><a href="/view/4">2B Pencil</a></li>
+				<ul>
+			</div>
+			<div class="templatemo_content_left_section">
+				<h1>Useful Websites</h1>
+				<ul>
+                    <li><a href="http://www.flashmo.com" target="_parent">Flash Templates</a></li>
+                    <li><a href="http://www.templatemo.com" target="_parent">CSS Templates</a></li>
+                    <li><a href="http://www.webdesignmo.com" target="_parent">Web Design</a></li>
+                    <li><a href="http://www.photovaco.com" target="_parent">Free Photos</a></li>
+            	</ul>
+            </div>
+            
+            
+        </div> <!-- end of content left -->
+		<div id="templatemo_content_right">
+		{% if username!=''%}<a href='/finishorder' class='underline midfont'style='margin-left:75%;border:1px solid;'>&nbsp;&nbsp;Finish Shopping&nbsp;&nbsp;</a>{%endif%}
+        {% block content %}
+		<div class="cleaner_with_height">&nbsp;</div>
+		<div class="cleaner_with_height">&nbsp;</div>
+		
+		<div>
+		<h1>This is a website for you to take a look at the SOUVENIRS available @ DHS</h1>
+		<br/>
+		{% if username==''%}<h1 class='centre'>Sign up <a href='/signup' class='underline;'>Here</a>!</h1>
+		<br/>
+		{% endif %}
+		{% if username==''%}<h1 class='centre'> Log in <a href='/login' class='underline;'>Here</a>!</h1>
+		<br/>	
+		{% endif %}
+		<h1 style='text-align:center;'> View The Store <a href='/allitems' class='underline;'>Here</a>!</h1>
+		<br/>
+		{% if username!=''%}<h1 class='centre'> View your orders <a href="/viewallorder/{{user}}" class='underline'>Here</a> !</h1><br/>{% endif %}
+		</div>
+		{% endblock %}
+		</div>
+    
+    	<div class="cleaner_with_height">&nbsp;</div>
+    </div> <!-- end of content -->
+    
+    <div id="templatemo_footer">
+    
+	    <a href="/">Home</a> | 
+		<a href="/allitems">Souvenirs</a> | 
+		{% if username==''%}<a href="/login">Login</a> |{% endif %} 
+		{% if username!=''%}<a href="/logout">Logout</a> | {% endif %}
+		{% if username!=''%}<a href="/viewallorder/{{user}}">My Orders</a> |{% endif %}
+        {% if username==''%}<a href="/signup">Sign Up</a> |{% endif %} 
+		{% if username=='adminsk' %}<a href="/search">Search</a> |{% endif %}            
+		<a href="/contact">Contact Us</a><br/>
+        Copyright © Song Kai 2013 <a href="http://www.dhs.sg"><strong>Dunman High School</strong></a> | <a href="http://www.iwebsitetemplate.com" target="_parent">Website Templates</a> by <a href="http://www.templatemo.com" target="_parent" title="free css templates">Free CSS Templates</a>	</div> 
+    <!-- end of footer -->
+<!--  Free CSS Template www.templatemo.com -->
+</div> <!-- end of container -->
+</html>

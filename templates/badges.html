@@ -1,0 +1,58 @@
+{% extends "main.html" %}
+{% block content %}
+
+        <div id="templatemo_content_right">
+		{% for i in range(0,l-1,2) %}
+        	<div class="templatemo_product_box">
+            	<h1>{{cur[i][0]}}  </h1>
+   	      <img src="/static/img/{{cur[i][5]}}.jpg" alt="image" />
+                <div class="product_info">
+					
+                	<p>{{cur[i][1]}}</p>
+                  <h3>${{cur[i][3]}} </h3>
+				  <h4 style='color:yellow'>No. of Purchase:&nbsp;&nbsp;&nbsp;{{cur[i][4]}}</h4>
+                    <div class="buy_now_button"><a href="/view/{{cur[i][5]}}">Buy Now</a></div>
+					<span style='font-size:13px;'> More {{cur[i][2]}} <a href='{{cur[i][2]}}'>Here</a></span>
+                </div>
+                <div class="cleaner">&nbsp;</div>
+            </div>
+            
+            <div class="cleaner_with_width">&nbsp;</div>
+            
+            <div class="templatemo_product_box">
+            	<h1>{{cur[i+1][0]}}  </h1>
+       	    <img src="/static/img/{{cur[i+1][5]}}.jpg" alt="image" />
+                <div class="product_info">
+                	<p>{{cur[i+1][1]}}</p>
+                    <h3>${{cur[i+1][3]}}</h3>
+<h4 style='color:yellow'>No. of Purchase:&nbsp;&nbsp;&nbsp;{{cur[i+1][4]}}</h4>
+                    <div class="buy_now_button"><a href="/view/{{cur[i+1][5]}}">Buy Now</a></div>
+										<span style='font-size:13px;'> More {{cur[i+1][2]}} <a href='{{cur[i+1][2]}}'>Here</a></span>
+                </div>
+                <div class="cleaner">&nbsp;</div>
+            </div>
+            
+            <div class="cleaner_with_height">&nbsp;</div>
+            {% endfor %}
+			{% if l%2==1 %}
+				<div class="templatemo_product_box">
+					<h1>{{cur[l-1][0]}}</h1>
+					<img src="/static/img/{{cur[l-1][5]}}.jpg" alt="image" />
+					<div class="product_info">
+						<p>{{cur[l-1][1]}}</p>
+                    <h3>${{cur[l-1][3]}}</h3>
+<h4 style='color:yellow'>No. of Purchase:&nbsp;&nbsp;&nbsp;{{cur[l-1][4]}}</h4>
+                    <div class="buy_now_button"><a href="/view/{{cur[l-1][5]}}">Buy Now</a></div>
+										<span style='font-size:13px;'> More {% if cur[l-1][2]=='special' %} Special Items {% endif %}
+														{% if cur[l-1][2]!='special' %} {{cur[l-1][2]}} {% endif %}<a href='{{cur[l-1][2]}}'>Here</a></span>
+                </div>
+                <div class="cleaner">&nbsp;</div>
+            </div>
+            
+            <div class="cleaner_with_width">&nbsp;</div>
+            
+            <div class="cleaner_with_height">&nbsp;</div>
+			{% endif %}
+            
+			</div> <!-- end of content right -->
+			{% endblock %}

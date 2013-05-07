@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+{% block content %}
+
+ <div>
+ <br/>
+ <br/>
+ <br/>
+  <form id="payment" action="" method="POST" class='centre'>
+	<fieldset>
+		<legend><h4>Payment Information</h4></legend>
+		<label for="cc_number">Card number</label>
+		<input type="text" id="cc_number" autocomplete="off" maxlength="19" name="cc_number" value="">
+		</br>
+		<label for="expdate">Expiration Date</label>
+		<input type="text" id="expdate_month" size="2" maxlength="2" name="expdate_month" placeholder="mm"> / 
+		<input type="text" id="expdate_year" size="2" maxlength="2" name="expdate_year" placeholder="yy">
+		</br>
+		<label for="csc">Card Security Code</label>
+		<input type="text" id="csc" size="4" maxlength="4" name="csc">
+		</br>
+		<label for="first_name">First Name</label>
+		<input type="text" id="first_name" name="first_name">	
+		</br>
+		<label for="last_name">Last Name</label>
+		<input type="text" id="last_name" name="last_name">
+	</fieldset>
+	<input type="submit" value="Confirm Order" class="button">
+  </form>
+  <div class="cleaner_with_width">&nbsp;</div>
+  <div class="cleaner_with_height">&nbsp;</div>
+  
+ </div>
+ 
+ {% endblock %}

@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+{% block content %}
+
+Search Users:
+<form action='' method=post>
+<input type=text name='search' placeholder='Enter Username' autofocus/>
+<input type=submit value='Submit'/>
+<table border='1' class='centre midfont' style='margin:5% 20%;'>
+	{% if cur %}
+	<th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+	<th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;username&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+	<th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+	{% endif %}
+{% for user in cur %}
+	<tr>
+	<td>{{user[2]}}</td>
+	<td><a href='viewallorder/{{user[2]}}'>{{user[0]}}</a></td>
+	<td>{% if user[2]!=0 %}<a href='/delete/{{user[2]}}'>Delete</a>{% endif %}
+		{% if user[2]==0 %}Immortal !!!{% endif %}</td>
+	</tr>
+{% endfor %}
+</table>
+</form>
+
+{% endblock %}

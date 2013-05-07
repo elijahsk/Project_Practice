@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+{% block content %}
+<br/>
+<h1 style='text-align:center;'> Login First!! </h1>
+<br/>
+<br/>
+  {% if error %}
+    <p class='centre red'><strong>Error:</strong> {{ error }}</p>
+  {% endif %}
+  <form action="" method=post>
+    
+      <p class='centre'>Username:
+      <input type=text name=username value="{{request.form.username }}"required autofocus/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  </p>
+	  <br/>
+      <p class='centre'>Password:&nbsp;
+      <input type=password name=password required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  </p>
+	  <br/>
+    <p style='text-align:right;'><input type=submit value=Login>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+  </form>
+ {% endblock %}

@@ -1,0 +1,67 @@
+{% extends "main.html" %}
+{% block content %}
+<table border='2' style='text-align:center;font-size:15px;'>
+<tr><td>User:</td><td>{{ausername}}</td></tr>
+</table>
+<br/>
+{% for message in get_flashed_messages() %}
+			<div class="flash centre">{{ message }}</div>
+		{% endfor %}
+<table border='2' style='centre midfont'>
+	
+	<tr>	
+		<th>Oid</th>
+		<th>Time of Order</th>
+		<th>Name </th>
+		<th>Amount </th>
+		<th>Status</th>
+		<th>Remove</th>
+		<th>&nbsp;&nbsp;&nbsp;&nbsp;More&nbsp;&nbsp;&nbsp;&nbsp;</th>
+	</tr>
+	{% if not cur %}
+	<tr><td>NIL</td><td>NIL</td><td>NIL</td><td>NIL</td><td>NIL</td><td>NIL</td><td>NIL</td><td>NIL</td></tr>
+	{% endif %}
+	{% for item in cur %}
+	<tr>
+		<td>{% if (cur[cur.index(item)-1][1]!=item[1]) or (cur.index(item)==0) %}	{{item[1]}} {% endif %}</td>
+		<td>{{item[2]}}</td>
+		{% for i in range(4,17) %}
+			{% if item[i]!=0 %}
+				<td>{{cur2[i-4][0]}}</td><td>{{item[i]}}</td>
+			{% endif %}
+		{% endfor %}
+		<br/>
+		{% if item[17]==0 %} 
+				<td>Not Paid </td>			
+		{% endif %}
+		{% if item[17]==1 %} 
+				<td>Paid </td>
+		{%endif %}
+		{% if item==cur[-1] %}
+			<td><a href='/dele/{{item[1]}}'>Delete</a></td>
+			{% if item[17]==0 %} 
+				<td> <a href='/pay/{{item[1]}}'>Pay Now</a></td>
+		{% endif %}
+		{% if item[17]==1 %} 
+				<td> <a href='/pay/{{item[1]}}'>Detail</a></td>
+		{% endif %}
+			
+		{% elif cur[cur.index(item)+1][1]!=item[1] %}
+			<td><a href='/dele/{{item[1]}}'>Delete</a></td>
+			{% if item[17]==0 %} 
+				<td> <a href='/pay/{{item[1]}}'>Pay Now</a></td>
+			{% endif %}
+			{% if item[17]==1 %} 
+				<td> <a href='/pay/{{item[1]}}'>Detail</a></td>
+		{% endif %}
+		{% elif True %}
+			<td/>
+			<td/>
+		{% endif %}
+
+		
+	</tr>
+	{% endfor %}
+</table>
+{% endblock %}
+	

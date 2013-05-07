@@ -1,0 +1,38 @@
+{% extends "main.html" %}
+{% block content %}
+    <br/>
+    <br/>
+	<form><input type=button name=print value="Print This Page" onClick="window.print()" class='dontprint'></form>
+    <br/>
+	<table border='1.5' class='centre midfont'>
+	<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Item Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+	<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unit Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+	<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+	<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subtotal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+	{% for i in range(0,13) %}
+		{% if t[i]!=0 %}
+		<tr>
+			<td>{{cur2[i][0]}}</td>
+			<td>${{cur2[i][3]}}</td>			
+			<td>{{t[i]}}</td>		
+			<td>${{cur2[i][3]*t[i]}}</td>
+		</tr>
+		{% endif %}
+	{% endfor %}
+	</table>
+	<br/>
+	<br/>
+	<br/>
+	<table border='1' class='centre midfont tablemargin'>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${{price}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;
+		{% if paid==0 %}<a href='/credit/{{oid}}' class='underline'>Pay Now</a>
+		{% elif True %}
+		Paid
+		{% endif %}&nbsp;&nbsp;&nbsp;</td>
+	</tr>
+	</table>
+{% endblock %}
+			

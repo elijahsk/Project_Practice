@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+{% block content %}
+<br/>
+<h1 class='centre'>Let's Sign Up!</h1>
+<form action='' method=post>
+	<p class='centre'>
+	Username: &nbsp;&nbsp;&nbsp;
+	<input type=text name=username value='{{request.form.username}}' required autofocus/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</p>
+	{% if error1 %}
+		<p class='centre'><strong class='red'> Error: </strong> {{error1}} </p>
+	{% endif %}
+	<p class='centre'>Password: &nbsp;&nbsp;&nbsp;
+	<input type=password name=password required/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</p>
+	<p class='centre'>
+	Confirm Password:
+	<input type=password name=cpassword  required/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</p>
+	{% if error2 %}
+		<p class='centre'><strong class='red'> Error: </strong> {{error2}} </p>
+	{% endif %}
+    <p class='centre'>
+    Email:&nbsp;&nbsp;&nbsp;
+    <input type=email name=email required/>
+    </p>
+    {% if error3 %}
+		<p class='centre'><strong class='red'> Error: </strong> {{error3}} </p>
+	{% endif %}
+
+    <br/>
+	<p class='centre'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type=submit value='Sign Up'/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<div class="cleaner_with_height">&nbsp;</div>
+</form.
+{% endblock %}
