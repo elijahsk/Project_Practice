@@ -104,7 +104,7 @@ def login():
         temp=cur.fetchone()
         if not temp:
             error='No such user'
-        elif hashstring(request.form['password'])!=temp[0]:
+        elif hashstr(request.form['password'])!=temp[0]:
             error='Wrong Password'
         else:
             session['logged_in']=True
@@ -160,7 +160,7 @@ def signup():
             num=len(connect_db().execute("""SELECT * FROM user""").fetchall())
             cur=cu.execute('INSERT INTO user VALUES(?,?,?,1,?)',
                            (request.form['username'],
-                            hashstring(request.form['password']),
+                            hashstr(request.form['password']),
                             num,
                             request.form['email'],)
                            )
