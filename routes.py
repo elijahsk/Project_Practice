@@ -48,6 +48,7 @@ connection.close()
 
 from flask import *
 import datetime
+import hashlib
 
 DATABASE='dstore.db'
 
@@ -56,6 +57,11 @@ app.config.from_object(__name__)
 app.secret_key = 'my precious'
 
 user=-1
+
+def hashstr(string):
+	temp=hashlib.sha256()
+	temp.update(string)
+	return temp.digest()
 
 def connect_db():
     return sqlite3.connect(app.config['DATABASE'])
@@ -98,7 +104,7 @@ def login():
         temp=cur.fetchone()
         if not temp:
             error='No such user'
-        elif request.form['password']!=temp[0]:
+        elif hashstring(request.form['password'])!=temp[0]:
             error='Wrong Password'
         else:
             session['logged_in']=True
@@ -154,7 +160,7 @@ def signup():
             num=len(connect_db().execute("""SELECT * FROM user""").fetchall())
             cur=cu.execute('INSERT INTO user VALUES(?,?,?,1,?)',
                            (request.form['username'],
-                            request.form['password'],
+                            hashstring(request.form['password']),
                             num,
                             request.form['email'],)
                            )
