@@ -14,7 +14,7 @@ MAIL_USERNAME = '***@***.***'
 MAIL_PASSWORD = '******'
 
 # administrator list
-ADMINS = ['song.kai@dhs.sg']
+ADMINS = ['***@***.**']
 
 connection=sqlite3.connect("dstore.db")
 cu=connection.cursor()
@@ -61,7 +61,7 @@ user=-1
 def hashstr(string):
 	temp=hashlib.sha256()
 	temp.update(string)
-	return temp.digest()
+	return temp.hexdigest()
 
 def connect_db():
     return sqlite3.connect(app.config['DATABASE'])
